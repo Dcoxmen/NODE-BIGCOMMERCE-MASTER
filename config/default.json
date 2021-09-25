@@ -1,0 +1,3 @@
+{
+    "mongoURI": "mongodb+srv://drcTestdb:drcTst54321@graphql-testdb1.mchku.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+}

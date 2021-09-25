@@ -1,0 +1,29 @@
+<h1>My Datasheet</h1>
+<div class="row">
+    {{#each result}}
+      <div class="col-12">
+         <div>{{productid}}</div>
+         <div>{{product_sku}}</div> 
+         <div>{{product_name}}</div> 
+         <div><img src={{zoom_image}} alt="Trulli" width="500" height="333"></div>
+         <div><img src={{thumbnail_image}} alt="Trulli" width="500" height="333"></div>
+         <div><img src={{standard_image}} alt="Trulli" width="500" height="333"></div>
+         <div><img src={{tiny_image}} alt="Trulli" width="75" height="75"></div>
+         <div>{{{truncate short_description 1400}}}</div>
+           
+      </div> 
+
+
+    {{else}}
+      <p>No Datasheet Found</p>
+
+    {{/each}}
+
+   
+     
+  
+   
+     
+
+    
+   
