@@ -258,7 +258,9 @@ bigCommerce.post('/products?name=' + escape('Plain T-Shirt'))
 
 Note that when returning in JSON the data will be parsed into an object, XML will not, and will return a string. When no response type is given the type will resort to whatever the BigCommerce default is.
 
-##-------------------------------------------------------------------
+
+
+
 #Unirest for Node js
 Unirest for Node.js Build Status
 License Downloads Gitter
