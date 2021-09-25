@@ -348,10 +348,3 @@ Returns a Request object with the method option set to DELETE
 let Request = unirest.delete('http://mockbin.com/request')
 unirest.jar()
 Creates a container to store multiple cookies, i.e. a cookie jar.
-
-let CookieJar = unirest.jar()
-CookieJar.add('key=value', '/')
- 
-unirest
-  .get('http://mockbin.com/request')
-  .jar(CookieJar)
