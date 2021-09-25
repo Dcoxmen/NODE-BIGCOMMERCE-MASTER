@@ -1,3 +1,12 @@
+
+
+## Using node-bigcommerce for node js to connect to the api to get product info. Also testing unirest npm for node js. 
+## Just clone the repo and run npm i to install all packages. To start the server use npm run dev.
+## Use localhost: 4000 to see home page.  There are two search fields to filter by product sku and company sponser.
+## After submitting the form the bigcommerce api is called and populates the result page with the product info by the sku called.
+## This will be arranged in an html template using handlebars. Then a button to download the page as a pdf will allow the result page to be downloaded.
+
+#-----------------------------------------------------------------
 # Bigcommerce for Node.js
 
 [![Build Status](https://travis-ci.org/getconversio/node-bigcommerce.svg?branch=master)](https://travis-ci.org/getconversio/node-bigcommerce)
@@ -249,16 +258,98 @@ bigCommerce.post('/products?name=' + escape('Plain T-Shirt'))
 
 Note that when returning in JSON the data will be parsed into an object, XML will not, and will return a string. When no response type is given the type will resort to whatever the BigCommerce default is.
 
-Webhooks can only be JSON so when dealing with the '/hooks' endpoint leave the responseType blank (or null).
+##-------------------------------------------------------------------
+#Unirest for Node js
+Unirest for Node.js Build Status
+License Downloads Gitter
 
-## Testing
 
-```
-yarn test
-```
 
-## Contributing
+Unirest is a set of lightweight HTTP libraries available in multiple languages, built and maintained by Kong, who also maintain the open-source API Gateway Kong.
 
-This module was originally written to be used with [Conversio](https://conversio.com) and is used in a production environment currently. This will ensure that this module is well maintained, bug free and as up to date as possible.
+Installing
+To utilize unirest for node.js install the the npm module:
 
-Conversio's developers will continue to make updates as often as required to have a consistently bug free platform, but we are happy to review any feature requests or issues and are accepting constructive pull requests.
+$ npm install unirest
+After installing the npm package you can now start simplifying requests like so:
+
+var unirest = require('unirest');
+Creating Requests
+You're probably wondering how by using Unirest makes creating requests easier. Besides automatically supporting gzip, and parsing responses, lets start with a basic working example:
+
+unirest
+  .post('http://mockbin.com/request')
+  .headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+  .send({ "parameter": 23, "foo": "bar" })
+  .then((response) => {
+    console.log(response.body)
+  })
+Uploading Files
+Transferring file data has been simplified:
+
+unirest
+  .post('http://mockbin.com/request')
+  .headers({'Content-Type': 'multipart/form-data'})
+  .field('parameter', 'value') // Form field
+  .attach('file', '/tmp/file') // Attachment
+  .then(function (response) {
+    console.log(response.body)
+  })
+Custom Entity Body
+unirest
+  .post('http://mockbin.com/request')
+  .headers({'Accept': 'application/json'})
+  .send(Buffer.from([1,2,3]))
+  .then(function (response) {
+    console.log(response.body)
+  })
+Unirest
+A request can be initiated by invoking the appropriate method on the unirest object, then calling .end() to send the request. Alternatively you can send the request directly by providing a callback along with the url.
+
+unirest(method [, uri, headers, body, callback])
+method - Request type (GET, PUT, POST, etc...)
+uri - Optional; When passed will return a Request object. Otherwise returns generated function with method pre-defined (e.g. unirest.get)
+headers (Object) - Optional; HTTP Request headers
+body (Mixed) - Optional; HTTP Request body
+callback (Function) - Optional; Invoked when Request has finalized with the argument Response
+unirest[method](url [, headers, body, callback])
+method - Request type, pre-defined methods, see below.
+url - Request location.
+headers (Object | Function) - Optional; When Object headers are passed along to the Request.header method, when Function this argument is used as the callback.
+body (Mixed | Function) - Optional; When body is not a Function it will be passed along to Request.send() method, otherwise when a Function it will be used as the callback.
+callback (Function) - Optional; Calls end with given argument, otherwise Request is returned.
+All arguments above, with the exclusion of url, will accept a Function as the callback. When no callback is present, the Request object will be returned.
+
+get
+Returns a Request object with the method option set to GET
+
+var Request = unirest.get('http://mockbin.com/request')
+head
+Returns a Request object with the method option set to HEAD
+
+let Request = unirest.head('http://mockbin.com/request')
+put
+Returns a Request object with the method option set to PUT
+
+let Request = unirest.put('http://mockbin.com/request')
+post
+Returns a Request object with the method option set to POST
+
+let Request = unirest.post('http://mockbin.com/request')
+patch
+Returns a Request object with the method option set to PATCH
+
+let Request = unirest.patch('http://mockbin.com/request')
+delete
+Returns a Request object with the method option set to DELETE
+
+let Request = unirest.delete('http://mockbin.com/request')
+unirest.jar()
+Creates a container to store multiple cookies, i.e. a cookie jar.
+
+let CookieJar = unirest.jar()
+CookieJar.add('key=value', '/')
+ 
+unirest
+  .get('http://mockbin.com/request')
+  .jar(CookieJar)
