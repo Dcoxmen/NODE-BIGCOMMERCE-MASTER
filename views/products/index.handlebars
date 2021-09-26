@@ -1,31 +1,37 @@
-<h1>My Datasheet</h1>
+
 <div class="row">
     {{!-- {{#each result}} --}}
       <div class="col-12">
-         <div>{{productid}}</div>
-         <div>{{product_sku}}</div> <div>{{datasheet_features}}</div>
-         <div>{{product_name}}</div> 
-         <div>{{truncate short_description 1400}}</div>
-         <div>{{datasheet_features}}</div>
+        <div><h2>{{product_name}}</h2></div> 
+        
+        <div><h5>{{{truncate short_description 60}}}</h5></div>
+        <hr>
          
+         <div><h6>SKU: {{product_sku}}</h6></div> 
+        <div><h5>MSRP: {{price}}</h5></div>
+        
 
+          <div class="col-6">{{{truncate description 1200}}}</div>
          {{#each images }}
-         <div><img src={{url_standard}} alt="Trulli" width="300" height="300"></div>
+         <div class="col-6"><img src={{url_standard}} alt="the joy factory product image" width="300" height="300"></div>
+     
          {{!-- <div><img src={{url_thumbnail}} alt="Trulli" width="500" height="333"></div>
          <div><img src={{url_zoom}} alt="Trulli" width="500" height="333"></div> --}}
          {{!-- <div><img src={{tiny_image}} alt="Trulli" width="75" height="75"></div> --}}
          {{!-- <div>{{{truncate short_description 1400}}}</div> --}}
          {{/each}}
+          <div>{{datasheet_benefits}}</div>
+         <div>{{datasheet_features}}</div>
            
       </div> 
 
 
     {{!-- {{else}} --}}
-      <p>No Datasheet Found</p>
+    
 
     {{!-- {{/each}} --}}
 
-   
+  </div> 
      
   
    

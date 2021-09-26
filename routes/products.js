@@ -49,18 +49,16 @@ router.post("/", async (req, res) => {
       if (error) throw new Error(error);
 
 
-       
         let myarray = data.map(( {url_standard, sort_order} ) => ({
-        
           sort_order,
           url_standard
          }))
          
-        
-         const image4lng = myarray.filter(myarray => myarray.sort_order < 5 )
-         const image8 = myarray.filter(myarray => myarray.sort_order === 8 )
+         const image1 = myarray.filter(myarray => myarray.sort_order === 0 )
+         const image2rng = myarray.filter(myarray => myarray.sort_order > 0 && myarray.sort_order < 4)
+         const image5 = myarray.filter(myarray => myarray.sort_order === 8)
 
-         const imageCombine = image4lng.concat(image8)
+         const imageCombine = image1.concat(image2rng, image5)
          return imageCombine
          
        
@@ -68,12 +66,10 @@ router.post("/", async (req, res) => {
         //  function filterImgCount(sort_order) {
         //   return sort_order >= 4;
         // }
-      
-     
-        
-
 
     });
+
+    
 
   
 
@@ -111,6 +107,14 @@ router.post("/", async (req, res) => {
 
     // console.log("CUSTOM FIELDS", custFields);
 
+    const formatter = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 2
+    })
+
+    console.log()
+
     const productData = {
       ...custFields.reduce((a, { key, value }) => {
         a[key] = value;
@@ -120,8 +124,11 @@ router.post("/", async (req, res) => {
       productid: data[0].id,
       product_name: data[0].name,
       product_sku: data[0].sku,
+      description: data[0].description,
       short_description: data[0].description,
       upc: data[0].upc,
+      price: formatter.format(data[0].price)
+      
     };
 
     console.log(productData);
