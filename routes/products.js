@@ -48,18 +48,34 @@ router.post("/", async (req, res) => {
       // console.log(res?.body?.data);
       if (error) throw new Error(error);
 
-      for (let i = 0; i < 5; i++) {
-        // console.log(res.body.data[i].url_zoom);
-        // console.log(res.body.data[i].url_standard);
-        // console.log(res.body.data[i].url_thumbnail);
-      }
 
-      return data.map(({ url_zoom, url_standard, url_thumbnail }) => ({
-        url_standard,
-        url_thumbnail,
-        url_zoom,
-      }));
+       
+        let myarray = data.map(( {url_standard, sort_order} ) => ({
+        
+          sort_order,
+          url_standard
+         }))
+         
+        
+         const image4lng = myarray.filter(myarray => myarray.sort_order < 5 )
+         const image8 = myarray.filter(myarray => myarray.sort_order === 8 )
+
+         const imageCombine = image4lng.concat(image8)
+         return imageCombine
+         
+       
+
+        //  function filterImgCount(sort_order) {
+        //   return sort_order >= 4;
+        // }
+      
+     
+        
+
+
     });
+
+  
 
     //all img links mapped here
     // console.log(images);
