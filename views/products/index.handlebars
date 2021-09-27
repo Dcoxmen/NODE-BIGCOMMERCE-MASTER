@@ -14,9 +14,17 @@
 
            
       </div> 
-      <div class="row">
+      
+
+
+    {{!-- {{else}} --}}
+    
+
+    {{!-- {{/each}} --}}
+ </div> 
+ <div class="row">
         <div class="col-6">{{{truncate description 1200}}}</div>
-        <div class="col-6">
+        <div class="col-12">
            {{#each mnImage}}
             <img src={{url_standard}} alt="the joy factory product image" width="400" height="400">
            {{/each}}
@@ -28,18 +36,14 @@
           </div>
          </div>
         
-        <div class="col-12 benefits"><h5><div class="benes">{{{datasheet_benefits}}}</div></h5></div>
-         <div class="col-12 features"><h5><div class="feat">{{datasheet_features}}</div></h5></div>
+        
       </div>
+      <div class="row">
+        <div class="col-12 benefits"><h5><div class="benes">{{{datasheet_benefits}}}</div></h5></div>
+         <div class="col-12 gitfeatures"><h5><div class="feat">{{datasheet_features}}</div></h5></div>
 
-
-    {{!-- {{else}} --}}
-    
-
-    {{!-- {{/each}} --}}
-
-  </div> 
-     
+      </div>
+      
   
    
      

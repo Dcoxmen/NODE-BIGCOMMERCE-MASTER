@@ -55,7 +55,7 @@ router.post("/", async (req, res) => {
          }))
          
         
-         const image2rng = myarray.filter(myarray => myarray.sort_order > 0 && myarray.sort_order < 4)
+         const image2rng = myarray.filter(myarray => myarray.sort_order > 0 && myarray.sort_order < 3)
          const image5 = myarray.filter(myarray => myarray.sort_order === 8)
 
          const imageCombine = image2rng.concat(image5)
@@ -76,7 +76,6 @@ router.post("/", async (req, res) => {
       // console.log(res?.body?.data);
       if (error) throw new Error(error);
 
-
         let myimage = data.map(( {url_standard, sort_order} ) => ({
           sort_order,
           url_standard
@@ -85,11 +84,6 @@ router.post("/", async (req, res) => {
          const mnImage = myimage.filter(myimage => myimage.sort_order === 0 )
          return mnImage
          
-       
-
-        //  function filterImgCount(sort_order) {
-        //   return sort_order >= 4;
-        // }
 
     });
 
@@ -117,13 +111,7 @@ router.post("/", async (req, res) => {
     }) {
       if (res.error) throw new Error(res.error);
 
-      // for (let i = 0; i < res.body.data.length; i++) {
-      //   let cust_fields = {
-      //     cust_name: res.body.data[i].name,
-      //     cust_value: res.body.data[i].value,
-      //   };
-      //   console.log(cust_fields);
-      // }
+     
       return data.map(({ name, value }) => ({
         key: name,
         value,
@@ -138,8 +126,8 @@ router.post("/", async (req, res) => {
       minimumFractionDigits: 2
     })
 
-       
-  
+
+   
 
     const productData = {
       ...custFields.reduce((a, { key, value }) => {
@@ -158,21 +146,19 @@ router.post("/", async (req, res) => {
       
     };
 
-    console.log(productData);
+   let dsheetb = productData.datasheet_benefits
+   let dsheetbArr = dsheetb.split(',');
+   console.log(dsheetbArr)
+   
+   
 
-    // let result = data.map((data) => ({
-    //   productid: data.id,
-    //   product_name: data.name,
-    //   product_sku: data.sku,
-    //   short_description: data.description,
-    //   upc: data.upc,
-    //   zoom_image: data.primary_image.zoom_url,
-    //   thumbnail_image: data.primary_image.thumbnail_url,
-    //   standard_image: data.primary_image.standard_url,
-    //   tiny_image: data.primary_image.tiny_url,
-    // }));
+ 
+     
+    // console.log(productData);
 
-    // console.log(...result);
+    // let benestring = productData.datasheet_benefits
+    // let arrbenefits = benestring.split(',');
+    // console.log(arrbenefits)
 
     res.render(`products/index`, productData);
   } catch (err) {

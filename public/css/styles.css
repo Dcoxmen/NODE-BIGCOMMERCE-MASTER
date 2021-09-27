@@ -36,11 +36,13 @@ body {
   background-color: darkred;
   color: white;
   width: 100%;
+  margin-top: 5%;
 }
 
 .features {
   background-color: whitesmoke;
   width: 100%;
+  margin-top: 5%;
 }
 .benes,
 .feat {
