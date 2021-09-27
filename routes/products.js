@@ -54,11 +54,11 @@ router.post("/", async (req, res) => {
           url_standard
          }))
          
-         const image1 = myarray.filter(myarray => myarray.sort_order === 0 )
+        
          const image2rng = myarray.filter(myarray => myarray.sort_order > 0 && myarray.sort_order < 4)
          const image5 = myarray.filter(myarray => myarray.sort_order === 8)
 
-         const imageCombine = image1.concat(image2rng, image5)
+         const imageCombine = image2rng.concat(image5)
          return imageCombine
          
        
@@ -68,6 +68,31 @@ router.post("/", async (req, res) => {
         // }
 
     });
+
+    const mnImage = await reqProdImages.then(function ({
+      body: { data = [] },
+      error,
+    }) {
+      // console.log(res?.body?.data);
+      if (error) throw new Error(error);
+
+
+        let myimage = data.map(( {url_standard, sort_order} ) => ({
+          sort_order,
+          url_standard
+         }))
+         
+         const mnImage = myimage.filter(myimage => myimage.sort_order === 0 )
+         return mnImage
+         
+       
+
+        //  function filterImgCount(sort_order) {
+        //   return sort_order >= 4;
+        // }
+
+    });
+
 
     
 
@@ -113,13 +138,15 @@ router.post("/", async (req, res) => {
       minimumFractionDigits: 2
     })
 
-    console.log()
+       
+  
 
     const productData = {
       ...custFields.reduce((a, { key, value }) => {
         a[key] = value;
         return a;
       }, {}),
+      mnImage,
       images,
       productid: data[0].id,
       product_name: data[0].name,
