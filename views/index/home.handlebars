@@ -1,44 +1,63 @@
-
-<h1>Welcome to DSheet Branding</h1>
-<p>This is your datasheet area</p>
-<p>"Select a product sku number and the reseller brand to incorporate in the datasheet"</p>
-<form action="/products" method="POST">
-  <div class="form-group">
-     <label for="sku">Choose a SKU:</label>
-
- <select name="sku" id="sku">
-    <option value="CWA639MPA">CWA639MPA</option>
-    <option value="KAM501B">KAM501B</option>
-    <option value="CWM320MP">CWM320MP</option>
-    <option value="MWA632MP104">MWA632MP104</option>
-    <option value="MWA635MH103">MWA635MH103</option>
-    <option value="CWA635MH">CWA635MH</option>
-    <option value="KAA112W">KAA112W</option>
-    <option value="KMX402W">KMX402W</option>
-    <option value="KAM504B">KAM504B</option>
-    <option value="CWM409MP">CWM409MP</option>
-
-  </select>
-  
-  <br><br>
-  
+<div class="row">
+  <div class="starter-template">
+    <div class="col-12">
+    <h1>Welcome to DSheet Branding</h1>
+    <p>This is your datasheet area</p>
+    <p>"Select a product sku number and the reseller brand to incorporate in the datasheet"</p>
   </div>
+    <section>
+      <form action="/products" method="POST">
+          <div class="form-group">
+            <label for="sku">Choose a SKU:</label>
 
+              <select name="sku" id="sku">
+                  <option value="CWA639MPA">CWA639MPA</option>
+                  <option value="KAM501B">KAM501B</option>
+                  <option value="CWM320MP">CWM320MP</option>
+                  <option value="MWA632MP104">MWA632MP104</option>
+                  <option value="MWA635MH103">MWA635MH103</option>
+                  <option value="CWA635MH">CWA635MH</option>
+                  <option value="KAA112W">KAA112W</option>
+                  <option value="KMX402W">KMX402W</option>
+                  <option value="KAM504B">KAM504B</option>
+                  <option value="MVU232">MVU232</option>
+                  <option value="MMU232">MMU232</option>
+                  <option value="MMU330">MMU330</option>
+                  <option value="CWM408MPA-NFC">CWM408MPA-NFC</option>
+                  <option value="CWA637MP-IS">CWA637MP-IS</option>
+                  <option value="MWA635MH102">MWA635MH102</option>
+                  <option value="MMU137S">MMU137S</option>
+                  <option value="MWA635MH103">MWA635MH103</option>
+                  <option value="MWA635MH103">MWA635MH103</option>
+                  <option value="CWA413KL">CWA413KL</option>
+                  <option value="MWA704MP">MWA704MP</option>
+                  <option value="CWA742MP">CWA742MP</option>
+                  <option value="CWM407MP-NFC-IS">CWM407MP-NFC-IS</option>
+                  
 
-      <label for="reseller">Choose a Reseller:</label>
-  <select name="reseller" id="reseller">
-    <option value="CDW">CDW</option>
-    <option value="Connection">Connection</option>
-    <option value="Insight">Insight</option>
-    <option value="Rugged Asia">Rugged Asia</option>
-  </select>
-  <br><br>
-  
+              </select>
+                
+                <br><br>
+          
+          </div>
+
+          <div class="form-group">
+              <label for="reseller">Choose a Reseller:</label>
+                <select name="reseller" id="reseller">
+                  <option value="CDW">CDW</option>
+                  <option value="Connection">Connection</option>
+                  <option value="Insight">Insight</option>
+                  <option value="Rugged Asia">Rugged Asia</option>
+                </select>
+                <br><br>
+                
+          </div>
+                
+                <div><button type="submit" class="btn btn-primary" value="Submit">Submit</button> </div>
+              
+      </form>
+
+    </section>
+
   </div>
-  </div>
-  
-  <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
-
-
-  
-</form>
+</div>

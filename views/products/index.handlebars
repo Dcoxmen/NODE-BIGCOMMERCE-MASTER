@@ -1,47 +1,165 @@
 
-<div class="row">
-    {{!-- {{#each result}} --}}
-      <div class="col-12">
-        <div><h2>{{product_name}}</h2></div> 
-        
-        <div><h5>{{{truncate short_description 60}}}</h5></div>
-        <hr>
+    <div class="row">
+      
+          <div class="col-12">
+            <div><h2>{{product_name}}</h2></div> 
+            
+            <div><h5>{{{truncate short_description 60}}}</h5></div>
+            <hr>
+            
+            <div><h6>SKU: {{product_sku}}</h6></div> 
+            <div><h5>MSRP: {{price}}</h5></div>
+            
+          </div> 
+      </div> 
+
+     <div class="row">
+       <div class="col-12 mnContent">
+          <div class="col-6">{{{truncate description 1100}}}</div>
+          
+              
+               <div class="col-6">
+               {{#each mnImage}}
+                
+                  <img src={{url_standard}} alt="the joy factory product image" width="400" height="400">
+              
+              {{/each}}
+
+              <div class="col-12 image-box">
+
+              {{#each images}}
+                
+                 <div class="col-4 pdf-thumb"><img src={{url_standard}} alt="the joy factory product image" width="90" height="90"></div> 
+              
+              {{/each}}
+             </div> 
+        </div>
+
+        </div>
+       
+       
+      </div>
+      
+
+      <div class="row">
+        <div class="col-12 beneTitle "><h5>Benefits</h5></div>
+         <div class="col-12 benefits">
+           
+             <ul class="benes">
+               <li>{{benefit1}}</li>
+               <li>{{benefit2}}</li>
+             </ul>
+             <ul class="benes">
+               <li>{{benefit3}}</li>
+               <li>{{benefit4}}</li>
+             </ul>
+             <ul class="benes">
+               <li>{{benefit5}}</li>
+               <li>{{benefit6}}</li>
+             </ul>
+             
+           
+          </div>
+         </div>
          
-         <div><h6>SKU: {{product_sku}}</h6></div> 
-        <div><h5>MSRP: {{price}}</h5></div>
-        
+       
+       <div class="row">
+         <div class="col-12 featTitle"><h5>Features</h5></div>
+           <div class="col-12 features">
+
+            <ul class="feat">
+               <li>{{feature1}}</li>
+               <li>{{feature2}}</li>
+             </ul>
+             <ul class="feat">
+               <li>{{feature3}}</li>
+               <li>{{feature4}}</li>
+             </ul>
+             <ul class="feat">
+               <li>{{feature5}}</li>
+               <li>{{feature6}}</li>
+             </ul>
+           </div>
+      </div>
+      <div class="row">
+         <div class="col-12 pdf-footer">
+           <table class="pageFooter">
+            <tr>
+               <td style="width:70%">
+                  <table class="footer-table">
+                     <tr>
+                        <td class="footer-company"><h3>The Joy Factory</h3></td>
+                     </tr>
+                     <tr>
+                        <td class="footer-second-desc"><p>16811 Hale Ave Bldg D Irvine, CA 92606 | sales@thejoyfactory.com | T : 1-877-569-3228| T : 1-877-JOY-FACT | thejoyfactory.com</p></td>
+                     </tr>
+                  </table>
+               </td>
+               <td style="width:20%;">
+                  <table class="footer-icons">
+                     <tr>
+                        <td class="footer-image"><img src="https://thejoyfactory.com/content/datasheet/protect.jpg" alt="The Joy Factory Protect Icon"></td>
+                        <td class="footer-image"><img src="https://thejoyfactory.com/content/datasheet/secure.jpg" alt="The Joy Factory Secure Icon"></td>
+                        <td class="footer-image"><img src="https://thejoyfactory.com/content/datasheet/position.jpg" alt="The Joy Factory Position Icon"></td>
+                     </tr>
+                     <tr>
+                        <td class="footer-icons-text">Protect</td>
+                        <td class="footer-icons-text">Secure</td>
+                        <td class="footer-icons-text">Position</td>
+                     </tr>
+                  </table>
+               </td>
+               <td style="width:10%;">
+                  <img class="footer-logo" src="https://thejoyfactory.com/content/datasheet/logo.png" alt="The Joy Factory logo." width="90px" height="50px"/>
+               </td>
+            </tr>
+         </table>
+
+         </div>
+
+      </div>
+      <div class="row">
+        <div class="col-12 technical">
+         <h2>TECHNICAL SPECIFICATIONS</h2>
+         <div class="col-6 tech-left">
+           {{#each techImage }}
+            
+            {{#if @last}} <img src={{url_standard}} alt="the joy factory product image" width="400" height="400">{{/if}}
 
 
            
-      </div> 
-      <div class="row">
-        <div class="col-6">{{{truncate description 1200}}}</div>
-        <div class="col-6">
-           {{#each mnImage}}
-            <img src={{url_standard}} alt="the joy factory product image" width="400" height="400">
            {{/each}}
-           <div class="col-12">
-             
-           {{#each images }}
-           <img src={{url_standard}} alt="the joy factory product image" width="100" height="100">
-           {{/each}}
-          </div>
          </div>
-        
-        <div class="col-12 benefits"><h5><div class="benes">{{{datasheet_benefits}}}</div></h5></div>
-         <div class="col-12 features"><h5><div class="feat">{{datasheet_features}}</div></h5></div>
+         <div class="col-6 tech-right">Specifications and Features
+           <div>{{{technical}}}</div>
+         </div>
+          <div class="product-specification">
+            <div class="product-left">
+              <h1>{{product_name}}</h1>
+              <div class="product-type">
+                <div>{{product_sku}}</div>
+                <div>{{product_type}}</div>
+                <div>{{price}}</div>
+              </div>
+            </div>
+            <div class="product-table">
+               <table class="product-speci-table">
+                 <tbody>
+                   <tr class="product-speci-title-row">
+                     <td class="product-speci-title">Product Specifications</td>
+
+                   </tr>
+
+                 </tbody>
+
+               </table>
+            </div>
+
+          </div>
+        </div>
       </div>
-
-
-    {{!-- {{else}} --}}
-    
-
-    {{!-- {{/each}} --}}
-
-  </div> 
-     
+      
   
-   
      
 
     

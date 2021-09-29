@@ -22,6 +22,7 @@ router.post("/", async (req, res) => {
 
   //using the bigCommerce object to handle creating the properties needed to fill an html template page.
   try {
+    //making productid a resuable variable
     const data = await bigCommerce.get(`/products?sku=${sku}`);
     let productid = data.map((data) => ({
       productid: data.id,
@@ -30,6 +31,8 @@ router.post("/", async (req, res) => {
     let prodId_value = Object.values(...productid);
     let productid_value = prodId_value[0];
 
+
+    //getting connection to bigcommerce images api
     let reqProdImages = unirest(
       "GET",
       `https://api.bigcommerce.com/stores/${process.env.STOREHASH}/v3/catalog/products/${productid_value}/images`
@@ -41,6 +44,8 @@ router.post("/", async (req, res) => {
       "x-auth-token": `${process.env.BC_TOKEN}`,
     });
 
+
+    //images array function
     const images = await reqProdImages.then(function ({
       body: { data = [] },
       error,
@@ -55,7 +60,7 @@ router.post("/", async (req, res) => {
          }))
          
         
-         const image2rng = myarray.filter(myarray => myarray.sort_order > 0 && myarray.sort_order < 4)
+         const image2rng = myarray.filter(myarray => myarray.sort_order > 0 && myarray.sort_order < 3)
          const image5 = myarray.filter(myarray => myarray.sort_order === 8)
 
          const imageCombine = image2rng.concat(image5)
@@ -69,13 +74,14 @@ router.post("/", async (req, res) => {
 
     });
 
+
+    //main image function
     const mnImage = await reqProdImages.then(function ({
       body: { data = [] },
       error,
     }) {
       // console.log(res?.body?.data);
       if (error) throw new Error(error);
-
 
         let myimage = data.map(( {url_standard, sort_order} ) => ({
           sort_order,
@@ -84,12 +90,24 @@ router.post("/", async (req, res) => {
          
          const mnImage = myimage.filter(myimage => myimage.sort_order === 0 )
          return mnImage
-         
-       
 
-        //  function filterImgCount(sort_order) {
-        //   return sort_order >= 4;
-        // }
+    });
+
+    //techImage function
+    const techImage = await reqProdImages.then(function ({
+      body: { data = [] },
+      error,
+    }) {
+      // console.log(res?.body?.data);
+      if (error) throw new Error(error);
+
+        let mytechimage = data.map(( {url_standard, sort_order} ) => ({
+          sort_order,
+          url_standard
+         }))
+         
+         const techImage = mytechimage.filter(mytechimage => mytechimage )
+         return techImage
 
     });
 
@@ -98,8 +116,7 @@ router.post("/", async (req, res) => {
 
   
 
-    //all img links mapped here
-    // console.log(images);
+   //custom fields funtions
 
     let reqCustFields = unirest(
       "GET",
@@ -132,14 +149,27 @@ router.post("/", async (req, res) => {
 
     // console.log("CUSTOM FIELDS", custFields);
 
+    //
+
     const formatter = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
       minimumFractionDigits: 2
     })
 
-       
-  
+    let str = data[0].description
+    let string = str.substring(str.lastIndexOf("&gt;") + 1)
+    let technical = string.substr(3)
+
+    const techSpecs = {
+      technical
+    }
+    
+
+    
+
+    
+
 
     const productData = {
       ...custFields.reduce((a, { key, value }) => {
@@ -148,33 +178,48 @@ router.post("/", async (req, res) => {
       }, {}),
       mnImage,
       images,
+      techImage,
       productid: data[0].id,
       product_name: data[0].name,
       product_sku: data[0].sku,
       description: data[0].description,
       short_description: data[0].description,
       upc: data[0].upc,
-      price: formatter.format(data[0].price)
+      price: formatter.format(data[0].price),
+      ...techSpecs
       
     };
 
-    console.log(productData);
+    let beneArray = productData.datasheet_benefits
+    let beneArr = beneArray.split(',');
 
-    // let result = data.map((data) => ({
-    //   productid: data.id,
-    //   product_name: data.name,
-    //   product_sku: data.sku,
-    //   short_description: data.description,
-    //   upc: data.upc,
-    //   zoom_image: data.primary_image.zoom_url,
-    //   thumbnail_image: data.primary_image.thumbnail_url,
-    //   standard_image: data.primary_image.standard_url,
-    //   tiny_image: data.primary_image.tiny_url,
-    // }));
+    let featArray = productData.datasheet_features
+    let featArr = featArray.split(',');
 
-    // console.log(...result);
+   const allData = {
 
-    res.render(`products/index`, productData);
+     benefit1: beneArr[0],
+     benefit2: beneArr[1],
+     benefit3: beneArr[2],
+     benefit4: beneArr[3],
+     benefit5: beneArr[4],
+     benefit6: beneArr[5],
+     feature1: featArr[0],
+     feature2: featArr[1],
+     feature3: featArr[2],
+     feature4: featArr[3],
+     feature5: featArr[4],
+     feature6: featArr[5],
+     ...productData
+
+
+
+   }
+
+console.log(allData)
+
+
+    res.render(`products/index`, allData);
   } catch (err) {
     console.log(err);
   }
