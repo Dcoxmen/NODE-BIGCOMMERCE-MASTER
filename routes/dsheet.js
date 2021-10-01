@@ -32,9 +32,6 @@ router.get('/', async (request, response) => {
   console.error(err)
 })
 
-//Add DSheet form
-router.get('/add', (req,res) => {
-    res.render('mydsheets/add')
-})
+
 
 module.exports = router

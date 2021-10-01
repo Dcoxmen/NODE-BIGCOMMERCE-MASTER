@@ -1,4 +1,5 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+
 
 const ResellerSchema = new mongoose.Schema({
     rs_name: {
@@ -16,5 +17,4 @@ const ResellerSchema = new mongoose.Schema({
 
 
 })
-
-module.export = Reseller = mongoose.model('reseller', ResellerSchema)
+mongoose.model('resellers', ResellerSchema, 'resellers')

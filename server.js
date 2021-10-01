@@ -1,16 +1,21 @@
 require("dotenv").config();
 const expressHbs = require("express-handlebars");
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
 const cors = require("cors");
 const mongoose = require("mongoose");
-// const connectDB = require('./config/db')
+const connectDB = require('./config/db')
 
 const app = express();
 
+
+
 //Connect DB
-// connectDB()
+connectDB()
+
+require('./models/Reseller')
 
 app.use(cors());
 app.use(express.json());
@@ -26,13 +31,14 @@ app.engine(
       truncate: truncate,
       select: select,
     },
-    defaultLayout: "main",
+    defaultLayout: "main"
+   
   })
 );
 app.set("view engine", "handlebars");
 app.set("views", "views");
 
-const indexRoutes = require("./routes/index");
+const indexRoutes = require("./routes/home");
 const productsRoutes = require("./routes/products");
 
 // Set static folder

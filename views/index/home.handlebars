@@ -23,7 +23,7 @@
                   <option value="MVU232">MVU232</option>
                   <option value="MMU232">MMU232</option>
                   <option value="MMU330">MMU330</option>
-                  <option value="CWM408MPA-NFC">CWM408MPA-NFC</option>
+                  <option value="CWM408MPA">CWM408MPA</option>
                   <option value="CWA637MP-IS">CWA637MP-IS</option>
                   <option value="MWA635MH102">MWA635MH102</option>
                   <option value="MMU137S">MMU137S</option>
@@ -42,13 +42,22 @@
           </div>
 
           <div class="form-group">
-              <label for="reseller">Choose a Reseller:</label>
-                <select name="reseller" id="reseller">
-                  <option value="CDW">CDW</option>
-                  <option value="Connection">Connection</option>
-                  <option value="Insight">Insight</option>
-                  <option value="Rugged Asia">Rugged Asia</option>
+              <label for="resellers">Choose a Reseller:</label>
+                <select name="resellers" id="resellers">
+                 {{#each resellers}}
+
+                
+                <option>{{{this.rs_name}}}</option>
+
+                  {{else}}
+                  <p>No Resellers Found</p>
+
+                  {{/each}}
+                
                 </select>
+                <div class="row">
+                 
+                 </div> 
                 <br><br>
                 
           </div>

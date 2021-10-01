@@ -60,27 +60,27 @@
              
            
           </div>
-         </div>
+       </div>
          
-       
        <div class="row">
          <div class="col-12 featTitle"><h5>Features</h5></div>
            <div class="col-12 features">
-
-            <ul class="feat">
-               <li>{{feature1}}</li>
-               <li>{{feature2}}</li>
-             </ul>
-             <ul class="feat">
-               <li>{{feature3}}</li>
-               <li>{{feature4}}</li>
-             </ul>
-             <ul class="feat">
-               <li>{{feature5}}</li>
-               <li>{{feature6}}</li>
-             </ul>
+              <ul class="feat">
+                  <li>{{feature1}}</li>
+                  <li>{{feature2}}</li>
+                </ul>
+                <ul class="feat">
+                  <li>{{feature3}}</li>
+                  <li>{{feature4}}</li>
+                </ul>
+                <ul class="feat">
+                  <li>{{feature5}}</li>
+                  <li>{{feature6}}</li>
+                </ul>
            </div>
-      </div>
+          </div>
+        
+
       <div class="row">
          <div class="col-12 pdf-footer">
            <table class="pageFooter">
@@ -146,19 +146,141 @@
                <table class="product-speci-table">
                  <tbody>
                    <tr class="product-speci-title-row">
-                     <td class="product-speci-title">Product Specifications</td>
-
+                     <td colspan="2" class="product-speci-title">Product Specifications</td>
                    </tr>
-
+                   <tr class="product-speci-row">
+                     <td class="product-speci-col">Compatible with:</td>
+                     <td class="product-speci-col">{{device_compatibility}}</td>
+                   </tr>
+                   <tr class="product-speci-row">
+                     <td class="product-speci-col">Product width:</td>
+                     <td class="product-speci-col">{{width}}</td>
+                   </tr>
+                   <tr class="product-speci-row">
+                     <td class="product-speci-col">Product height:</td>
+                     <td class="product-speci-col">{{height}}</td>
+                   </tr>
+                   <tr class="product-speci-row">
+                     <td class="product-speci-col">Product thickness:</td>
+                     <td class="product-speci-col">{{depth}}</td>
+                   </tr>
+                   <tr class="product-speci-row">
+                     <td class="product-speci-col">Product weight:</td>
+                     <td class="product-speci-col">{{weight}}</td>
+                   </tr>
+                   <tr class="product-speci-row">
+                     <td class="product-speci-col">Package width:</td>
+                     <td class="product-speci-col">{{unit_width}} in</td>
+                   </tr>
+                   <tr class="product-speci-row">
+                     <td class="product-speci-col">Package height:</td>
+                     <td class="product-speci-col">{{unit_height}} in</td>
+                   </tr>
+                   <tr class="product-speci-row">
+                     <td class="product-speci-col">Package thickness:</td>
+                     <td class="product-speci-col">{{unit_depth}} in</td>
+                   </tr>
+                   <tr class="product-speci-row">
+                     <td class="product-speci-col">Package weight:</td>
+                     <td class="product-speci-col">{{unit_weight}} in</td>
+                   </tr>
+                   <tr class="product-speci-row">
+                     <td class="product-speci-col">UPC:</td>
+                     <td class="product-speci-col">{{upc}}</td>
+                   </tr>
+                   <tr class="product-speci-row">
+                     <td class="product-speci-col">Warranty:</td>
+                     <td class="product-speci-col">{{warranty}}</td>
+                   </tr>
+                   <tr class="product-speci-row">
+                     <td class="product-speci-col">Certifications:</td>
+                     <td class="product-speci-col">{{certifications}}</td>
+                   </tr>
+                   <tr class="product-speci-row">
+                     <td class="product-speci-col">Rating:</td>
+                     <td class="product-speci-col">{{reviews_rating_sum}}</td>
+                   </tr>
+                   <tr class="product-speci-row">
+                     <td class="product-speci-col">Package Content:</td>
+                     <td class="product-speci-col">{{package_content}}</td>
+                   </tr>
                  </tbody>
 
                </table>
             </div>
 
+            <div class="account-section">
+               <table>
+                 <tbody>
+                   {{#each reseller}}
+                    <tr>
+                       <td class="account-section-col-img">{{this.imagepath}}</td>
+                       <td class="account-section-col-name">{{this.rs_name}}</td>
+                    </tr>
+                    <tr>
+                       <td class="account-section-col-phone">{{this.email}}</td>
+                       <td class="account-section-col-phone">{{this.address}}</td>
+                       <td class="account-section-col-phone">{{this.phone}}</td>
+                    </tr>
+                    {{else}}
+                  <p>No Resellers Found</p>
+                    {{/each}}
+                 </tbody>
+               </table>
+            </div>
+
+    
+
           </div>
+        <div class="row">
+        <div class="col-12 pdf-footer">
+           <table class="pageFooter">
+            <tr>
+               <td style="width:70%">
+                  <table class="footer-table">
+                     <tr>
+                        <td class="footer-company"><h3>The Joy Factory</h3></td>
+                     </tr>
+                     <tr>
+                        <td class="footer-second-desc"><p>16811 Hale Ave Bldg D Irvine, CA 92606 | sales@thejoyfactory.com | T : 1-877-569-3228| T : 1-877-JOY-FACT | thejoyfactory.com</p></td>
+                     </tr>
+                  </table>
+               </td>
+               <td style="width:20%;">
+                  <table class="footer-icons">
+                     <tr>
+                        <td class="footer-image"><img src="https://thejoyfactory.com/content/datasheet/protect.jpg" alt="The Joy Factory Protect Icon"></td>
+                        <td class="footer-image"><img src="https://thejoyfactory.com/content/datasheet/secure.jpg" alt="The Joy Factory Secure Icon"></td>
+                        <td class="footer-image"><img src="https://thejoyfactory.com/content/datasheet/position.jpg" alt="The Joy Factory Position Icon"></td>
+                     </tr>
+                     <tr>
+                        <td class="footer-icons-text">Protect</td>
+                        <td class="footer-icons-text">Secure</td>
+                        <td class="footer-icons-text">Position</td>
+                     </tr>
+                  </table>
+               </td>
+               <td style="width:10%;">
+                  <img class="footer-logo" src="https://thejoyfactory.com/content/datasheet/logo.png" alt="The Joy Factory logo." width="90px" height="50px"/>
+               </td>
+            </tr>
+         </table>
+
+         </div>
+
+      </div>
         </div>
+        
       </div>
       
+
+
+
+
+  
+
+
+    
   
      
 

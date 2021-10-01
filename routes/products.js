@@ -1,7 +1,8 @@
 const express = require("express");
 const BigCommerce = require("node-bigcommerce");
 const router = express.Router();
-
+const mongoose = require('mongoose')
+const Reseller = mongoose.model('resellers')
 const unirest = require("unirest");
 
 //BigCommerce main api connection
@@ -16,9 +17,7 @@ const bigCommerce = new BigCommerce({
 //POST Route sends sku id used as parameter to filter results called on products route
 router.post("/", async (req, res) => {
   let sku = req.body.sku;
-  let reseller = {
-    reseller: req.body.reseller,
-  };
+
 
   //using the bigCommerce object to handle creating the properties needed to fill an html template page.
   try {
@@ -150,6 +149,11 @@ router.post("/", async (req, res) => {
     // console.log("CUSTOM FIELDS", custFields);
 
     //
+    const inchformat = new Intl.NumberFormat('en-US', {
+      style: 'unit',
+      unit: 'inch',
+      minimumFractionDigits: 1
+    })
 
     const formatter = new Intl.NumberFormat('en-US', {
       style: 'currency',
@@ -164,12 +168,15 @@ router.post("/", async (req, res) => {
     const techSpecs = {
       technical
     }
-    
+
+    let vendor = req.body.resellers
+    const reSeller = await Reseller.find({ rs_name: {  $eq: vendor } });
+  
 
     
-
     
 
+ 
 
     const productData = {
       ...custFields.reduce((a, { key, value }) => {
@@ -186,9 +193,21 @@ router.post("/", async (req, res) => {
       short_description: data[0].description,
       upc: data[0].upc,
       price: formatter.format(data[0].price),
-      ...techSpecs
+      width: inchformat.format(data[0].width),
+      height: inchformat.format(data[0].height),
+      weight: inchformat.format(data[0].weight),
+      depth: inchformat.format(data[0].depth),
+      warranty: data[0].warranty,
+      rating: data[0].reviews_rating_sum,
+      reseller: reSeller[0],
+      ...techSpecs,
+      
+      
+       
       
     };
+
+    
 
     let beneArray = productData.datasheet_benefits
     let beneArr = beneArray.split(',');
