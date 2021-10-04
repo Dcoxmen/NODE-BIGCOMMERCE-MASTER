@@ -15,7 +15,8 @@ const app = express();
 //Connect DB
 connectDB()
 
-require('./models/Reseller')
+require('./models/Reseller');
+require('./models/upload_file');
 
 app.use(cors());
 app.use(express.json());
@@ -37,12 +38,14 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 app.set("views", "views");
+// Set static folder
+app.use(express.static(path.join(__dirname, "public")));
+
 
 const indexRoutes = require("./routes/home");
 const productsRoutes = require("./routes/products");
 
-// Set static folder
-app.use(express.static(path.join(__dirname, "public")));
+
 
 app.use("/", indexRoutes);
 app.use("/products", productsRoutes);

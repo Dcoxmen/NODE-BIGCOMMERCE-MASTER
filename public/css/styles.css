@@ -34,6 +34,7 @@ body {
 
   padding: 0 15px;
 }
+
 .benefits {
   background-color: #D0103A;
   color: white;
@@ -67,9 +68,6 @@ body {
   padding-right: 5%
  
 }
-
-
-
 
 
 .pdf-thumb {
@@ -202,9 +200,46 @@ body {
   box-sizing: border-box;
 }
 
+.account-section {
+  width: 97%;
+  float: left;
+  background: #fff;
+  padding: 20px;
+  box-sizing: border-box;
+  border-top: solid 2px #fff;
+  margin: 15px 15px 0;
+}
+
 .account-section table {
   width: 100%;
   float: left;
+}
+
+.account-section-col-img {
+  width: 25%;
+  text-align: center;
+}
+
+.account-section-col-name {
+  width: 25%;
+  text-align: left;
+  color: rgb(8, 8, 8);
+  font-size: 15pt;
+  font-weight: 400;
+  font-family: arial;
+}
+.account-section-col-phone {
+  width: 50%;
+  padding-left: 15px;
+  font-size: 8pt;
+  color: #353839;
+  font-family: arial;
+  line-height: 20px;
+  border-left: solid 1px #d0103a;
+}
+
+.rstext {
+  text-align: center;
 }
 
 .pageFooter {

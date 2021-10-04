@@ -209,23 +209,22 @@
                </table>
             </div>
 
-            <div class="account-section">
+           <div class="account-section">
                <table>
+                  
                  <tbody>
-                   {{#each reseller}}
+             
+                
+                   
                     <tr>
-                       <td class="account-section-col-img">{{this.imagepath}}</td>
-                       <td class="account-section-col-name">{{this.rs_name}}</td>
+                       <td class="account-section-col-img"><img src="{{reseller_pic}}" alt="" width="200px" height="125px"></td>
+                       <td class="account-section-col-name"><div class="rstext"><h2>{{reseller_name}}</h2></div><div class="rstext"><h5>{{reseller_title}}</h5></div></td>
+                       <td class="account-section-col-phone">{{reseller_email}} <br> {{reseller_phone}}</td>
                     </tr>
-                    <tr>
-                       <td class="account-section-col-phone">{{this.email}}</td>
-                       <td class="account-section-col-phone">{{this.address}}</td>
-                       <td class="account-section-col-phone">{{this.phone}}</td>
-                    </tr>
-                    {{else}}
-                  <p>No Resellers Found</p>
-                    {{/each}}
+                  
+              
                  </tbody>
+                 
                </table>
             </div>
 

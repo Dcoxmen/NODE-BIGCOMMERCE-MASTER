@@ -16,7 +16,7 @@ router.get('/', (req, res, next) => {
     .then(resellers => {
         res.render('index/home', {
         resellers: resellers
-         
+      
         })
     })
 

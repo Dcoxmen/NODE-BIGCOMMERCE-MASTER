@@ -3,6 +3,7 @@ const BigCommerce = require("node-bigcommerce");
 const router = express.Router();
 const mongoose = require('mongoose')
 const Reseller = mongoose.model('resellers')
+const Uploadfile = mongoose.model('upload_file')
 const unirest = require("unirest");
 
 //BigCommerce main api connection
@@ -132,14 +133,6 @@ router.post("/", async (req, res) => {
       body: { data = [] },
     }) {
       if (res.error) throw new Error(res.error);
-
-      // for (let i = 0; i < res.body.data.length; i++) {
-      //   let cust_fields = {
-      //     cust_name: res.body.data[i].name,
-      //     cust_value: res.body.data[i].value,
-      //   };
-      //   console.log(cust_fields);
-      // }
       return data.map(({ name, value }) => ({
         key: name,
         value,
@@ -170,13 +163,13 @@ router.post("/", async (req, res) => {
     }
 
     let vendor = req.body.resellers
-    const reSeller = await Reseller.find({ rs_name: {  $eq: vendor } });
-  
 
+    let docs = await Reseller.findOne({ rs_name: vendor})
+    docs.save(doc => doc);
     
+    let imgurl = docs.imagepath
+    let rsimage = await Uploadfile.findOne({_id: {$eq: imgurl}})
     
-
- 
 
     const productData = {
       ...custFields.reduce((a, { key, value }) => {
@@ -199,11 +192,15 @@ router.post("/", async (req, res) => {
       depth: inchformat.format(data[0].depth),
       warranty: data[0].warranty,
       rating: data[0].reviews_rating_sum,
-      reseller: reSeller[0],
-      ...techSpecs,
+      reseller_name: docs.rs_name,
+      reseller_phone: docs.phone,
+      reseller_email: docs.email,
+      reseller_title: docs.title,
+      reseller_image1: docs.imagepath,
+      reseller_pic: rsimage.url,
+      ...techSpecs
       
       
-       
       
     };
 
