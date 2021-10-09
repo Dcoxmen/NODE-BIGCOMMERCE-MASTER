@@ -16,6 +16,7 @@ const app = express();
 connectDB()
 
 require('./models/Reseller');
+require('./models/Products');
 require('./models/upload_file');
 
 app.use(cors());

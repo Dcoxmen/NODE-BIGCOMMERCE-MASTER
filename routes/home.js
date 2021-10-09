@@ -4,6 +4,8 @@ const router = express.Router()
 const unirest = require("unirest");
 const mongoose = require('mongoose')
 const Reseller = mongoose.model('resellers')
+// const skulist = require("../public/skus");
+
 
 
 //@route  GET api
@@ -11,20 +13,21 @@ const Reseller = mongoose.model('resellers')
 //@access Public
 
 router.get('/', (req, res, next) => {
+  
     Reseller.find({}).lean()
     .select('rs_name')
     .then(resellers => {
         res.render('index/home', {
         resellers: resellers
+        
       
         })
-    })
 
-    
-    
         
-  
-  });
+    })
     
+    
+  })
+  
 
 module.exports = router

@@ -15,13 +15,17 @@
 
      <div class="row">
        <div class="col-12 mnContent">
-          <div class="col-6">{{{truncate description 1100}}}</div>
+          <div class="col-6">
+            <div class="description">
+            <p>{{{truncate descript1 920}}} {{{descriptBullets}}}</p>
+            </div>
+            </div>
           
               
                <div class="col-6">
                {{#each mnImage}}
                 
-                  <img src={{url_standard}} alt="the joy factory product image" width="400" height="400">
+                  <img src={{url_standard}} alt="the joy factory product image" width="445" height="445">
               
               {{/each}}
 
@@ -29,7 +33,7 @@
 
               {{#each images}}
                 
-                 <div class="col-4 pdf-thumb"><img src={{url_standard}} alt="the joy factory product image" width="90" height="90"></div> 
+                 <div class="col-4 pdf-thumb"><img src={{url_standard}} alt="the joy factory product image" width="112" height="112"></div> 
               
               {{/each}}
              </div> 
@@ -42,41 +46,72 @@
       
 
       <div class="row">
+        <div class="benecontainer">
         <div class="col-12 beneTitle "><h5>Benefits</h5></div>
          <div class="col-12 benefits">
            
              <ul class="benes">
-               <li>{{benefit1}}</li>
-               <li>{{benefit2}}</li>
+               <li>{{bene1}}</li>
+               <li>{{bene2}}</li>
              </ul>
              <ul class="benes">
-               <li>{{benefit3}}</li>
-               <li>{{benefit4}}</li>
+               <li>{{bene3}}</li>
+               <li>{{bene4}}</li>
              </ul>
              <ul class="benes">
-               <li>{{benefit5}}</li>
-               <li>{{benefit6}}</li>
+               <li>{{bene5}}</li>
+               <li>{{bene6}}</li>
              </ul>
              
            
+          </div>
           </div>
        </div>
          
        <div class="row">
          <div class="col-12 featTitle"><h5>Features</h5></div>
            <div class="col-12 features">
-              <ul class="feat">
-                  <li>{{feature1}}</li>
-                  <li>{{feature2}}</li>
-                </ul>
-                <ul class="feat">
-                  <li>{{feature3}}</li>
-                  <li>{{feature4}}</li>
-                </ul>
-                <ul class="feat">
-                  <li>{{feature5}}</li>
-                  <li>{{feature6}}</li>
-                </ul>
+              <div class="general_features">
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>
+                         <img src={{feat1}} alt="the joy factory product image" width="65" height="65">
+                         <span>{{feat1title}}</span>
+                        
+                      </td>
+                      <td>
+                        <img src={{feat2}} alt="the joy factory product image" width="65" height="65">
+                        <span>{{feat2title}}</span>
+                      </td>
+                      <td>
+                        <img src={{feat3}} alt="the joy factory product image" width="65" height="65">
+                        <span>{{feat3title}}</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src={{feat4}} alt="the joy factory product image" width="65" height="65">
+                        <span>{{feat4title}}</span>
+                      </td>
+                      <td>
+                        <img src={{feat5}} alt="the joy factory product image" width="65" height="65">
+                        <span>{{feat5title}}</span>
+                      </td>
+                      <td>
+                   
+                        <img src={{feat6}} alt="the joy factory product image" width="65" height="65">
+                        <span>{{feat6title}}</span>
+                        
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+               
+              
+                 
+                 
+                </div>
            </div>
           </div>
         
@@ -120,19 +155,28 @@
       </div>
       <div class="row">
         <div class="col-12 technical">
+
+       
          <h2>TECHNICAL SPECIFICATIONS</h2>
-         <div class="col-6 tech-left">
+         <div class="case-specifications">
+          <div class="col-6 tech-left">
            {{#each techImage }}
             
-            {{#if @last}} <img src={{url_standard}} alt="the joy factory product image" width="400" height="400">{{/if}}
+            {{#if @last}} <img src={{url_standard}} alt="the joy factory product image" width="485" height="485">{{/if}}
 
 
            
            {{/each}}
+           </div>
+
+
+           <div class="col-6 tech-right">Specifications and Features
+             <div>{{{technical}}}</div>
+            </div>
+
          </div>
-         <div class="col-6 tech-right">Specifications and Features
-           <div>{{{technical}}}</div>
-         </div>
+
+         
           <div class="product-specification">
             <div class="product-left">
               <h1>{{product_name}}</h1>
@@ -227,9 +271,8 @@
                  
                </table>
             </div>
-
-    
-
+          
+            
           </div>
         <div class="row">
         <div class="col-12 pdf-footer">

@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+require('./Products.js');
+
 // const upload_file = require('./upload_file');
 const ResellerSchema = new mongoose.Schema({
     rs_name: {
@@ -28,10 +30,10 @@ const ResellerSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    // url: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: upload_file
-    // }
+    sku: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "products"
+     }
 
 
 });
