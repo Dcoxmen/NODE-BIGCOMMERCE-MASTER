@@ -1,22 +1,20 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 // const upload_file = require('./upload_file');
 const ProductsSchema = new mongoose.Schema({
-    sku: {
-        type: String,
-    },
-    vendor: {
-        type: String
-    },
-    title: {
-        type: String
-    },
-    tags: {
-        type: String
-    }
-    
-
+  sku: {
+    type: String,
+  },
+  vendor: {
+    type: String,
+  },
+  title: {
+    type: String,
+  },
+  tags: {
+    type: String,
+  },
 });
 
-const Products = mongoose.model('products', ProductsSchema, 'products')
+const Product = mongoose.model("products", ProductsSchema, "products");
 
-module.exports ={Products}
+module.exports = Product;

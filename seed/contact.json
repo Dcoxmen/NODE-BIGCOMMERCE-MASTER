@@ -1,0 +1,170 @@
+[
+  {
+    "Name": "Sampson Yang",
+    "Title": "Sales",
+    "Phone": "949.382.1524",
+    "Email": "sampson.yang@thejoyfactory.com",
+    "Active": true
+  },
+  {
+    "Name": "Miranda Su",
+    "Title": "Sales",
+    "Phone": "949.382.1556",
+    "Email": "miranda.su@thejoyfactory.com",
+    "Active": true
+  },
+  {
+    "Name": "Bill Nguyen",
+    "Title": "Sales",
+    "Phone": "949.382.1552",
+    "Email": "bill.nguyen@thejoyfactory.com",
+    "Active": true
+  },
+  {
+    "Name": "Poya Moradi",
+    "Title": "Sales",
+    "Phone": "949.382.1489",
+    "Email": "poya.moradi@thejoyfactory.com",
+    "Active": true
+  },
+  {
+    "Name": "Bryan Church",
+    "Title": "Channel Account Manager",
+    "Phone": "949.382.1449",
+    "Email": "bryan.church@thejoyfactory.com",
+    "Active": true
+  },
+  {
+    "Name": "Debra Vogel",
+    "Title": "Marketing",
+    "Phone": "949.382.1547",
+    "Email": "debra.vogel@thejoyfactory.com",
+    "Active": true
+  },
+  {
+    "Name": "Tracy Lo (TW)",
+    "Title": "Sales",
+    "Phone": "+886 2 55784510",
+    "Email": "tracy.lo@thejoyfactory.com",
+    "Active": true
+  },
+  {
+    "Name": "Lynn Swanson (Rep)",
+    "Title": "Sales",
+    "Phone": "310.780.7978",
+    "Email": "lynn@nylaconsulting.com",
+    "Active": true
+  },
+  {
+    "Name": "Bruce Ralphs (Rep)",
+    "Title": "Sales",
+    "Phone": "250.727.1421",
+    "Email": "bruce.ralphs@thejoyfactory.com",
+    "Active": true
+  },
+  {
+    "Name": "Steve McGarrigle",
+    "Title": "Senior Channel Sales Manager",
+    "Phone": "949.204.3380",
+    "Email": "steve.mcgarrigle@thejoyfactory.com",
+    "Active": true
+  },
+  {
+    "Name": "Richard Occhipinti",
+    "Title": "Channel Account Manager",
+    "Phone": "949.966.0330",
+    "Email": "richard.occhipinti@thejoyfactory.com",
+    "Active": true
+  },
+  {
+    "Name": "Dave McCurdy",
+    "Title": "Project Lead",
+    "Phone": "610-357-3999",
+    "Email": "dave.mccurdy@thejoyfactory.com",
+    "Active": true
+  },
+  {
+    "Name": "Sophia Hsu",
+    "Title": "Sales",
+    "Phone": "+886 2 55784510 ext.501",
+    "Email": "sophia.hsu@thejoyfactory.com",
+    "Active": true
+  },
+  {
+    "Name": "Andy Haung",
+    "Title": "Sales",
+    "Phone": "+886 2 55784510",
+    "Email": "andy.huang@thejoyfactory.com",
+    "Active": true
+  },
+  {
+    "Name": "Jim McCarthy",
+    "Title": "Sales Representative",
+    "Phone": "847.204.9070",
+    "Email": "jmccarthy@edelston.com",
+    "Active": true
+  },
+  {
+    "Name": "Matthew Ricci",
+    "Title": "Sales Representative",
+    "Phone": "416.732.0880",
+    "Email": "Mricci@Zentechcanada.com",
+    "Active": true
+  },
+  {
+    "Name": "Zeno Ricci",
+    "Title": "Sales Representative",
+    "Phone": "416.697.6173",
+    "Email": "Zricci@Zentechcanada.com",
+    "Active": true
+  },
+  {
+    "Name": "Jason Howe",
+    "Title": "Account Manager  |  CDW Healthcare",
+    "Phone": "203.851.7175",
+    "Email": "JASOHOW@cdwg.com",
+    "Active": true
+  },
+  {
+    "Name": "René Knierim",
+    "Title": "Managing Director",
+    "Phone": "+31105903070",
+    "Email": "sales@2moso.com",
+    "Active": true
+  },
+  {
+    "Name": "Symantha Hencel",
+    "Title": "Senior Partner Relationship Manager",
+    "Phone": "847.521.4020",
+    "Email": "shencel@dminc.com",
+    "Active": true
+  },
+  {
+    "Name": "Adam Comitor",
+    "Title": "Executive Account Manager",
+    "Phone": "877-325-2823",
+    "Email": "adamcom@cdw.com",
+    "Active": true
+  },
+  {
+    "Name": "Brett McKone",
+    "Title": "Sales | CDW Healthcare",
+    "Phone": "312.547.2371",
+    "Email": "bretmck@cdwg.com",
+    "Active": true
+  },
+  {
+    "Name": "Chris Watson",
+    "Title": "Executive Account Manager | CDW Healthcare",
+    "Phone": "877-874-8319",
+    "Email": "chriwat@cdw.com",
+    "Active": true
+  },
+  {
+    "Name": "Angela Chen",
+    "Title": "Sales",
+    "Phone": "949-619-6004",
+    "Email": "angela.chen@thejoyfactory.com",
+    "Active": true
+  }
+]
