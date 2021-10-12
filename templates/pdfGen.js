@@ -7,6 +7,8 @@ const makeHTML = ({ data, styles }) => {
     mainDescriptionLong,
     mainBullets,
     productImgMain,
+    productImgs,
+    benefits,
   } = data;
 
   return `
@@ -29,15 +31,45 @@ const makeHTML = ({ data, styles }) => {
         </header>
         <main>
             <section class="productBlock">
-                <div class="col description">
+                <div class="col description" style="background: red">
                     <p>${mainDescriptionLong}</p>
                     <ul>
                         ${mainBullets.map((a) => `<li>${a}</li>`).join("\n")}
                     </ul>
                 </div>
-                <div class="col media">
-                    <img src="${productImgMain}"/>
+                <div class="col media" style="background: blue">
+                    <div class="img-main" style="width: 50%; margin-left: 25%">
+                        <img src="${productImgMain}"/>
+                    </div>
+                    <div class="img-small">
+                        ${productImgs
+                          .map(
+                            (a) =>
+                              `<div><img style="width: 100%;" src="${a}"/></div>`
+                          )
+                          .join("\n")}
+                    </div>
                 </div>
+            </section>
+            <section class="benefits">
+                <div class="bene-list">
+                    <h3>Benefits</h3>
+                    <ul class="benes">
+                        <li>${benefits[0]}</li>
+                        <li>${benefits[1]}</li>
+                    </ul>
+                    <ul class="benes">
+                        <li>${benefits[2]}</li>
+                        <li>${benefits[3]}</li>
+                    </ul>
+                    <ul class="benes">
+                        <li>${benefits[4]}</li>
+                        <li>${benefits[5]}</li>
+                    </ul>
+                </div>
+          </div>
+          </div>
+       </div>
             </section>
         </main>
     </body>
