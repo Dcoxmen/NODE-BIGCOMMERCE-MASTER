@@ -47,7 +47,7 @@
                       <label for="contacts">Choose a Contact:</label>
                       <select name="contacts" id="contacts">
                         {{#each contacts}}
-                        <option >{{this.name}}</option>
+                        <option value={{this._id}}>{{this.name}}</option>
                         {{else}}
                         <p>No Contacts Found</p>
                     

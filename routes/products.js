@@ -143,10 +143,12 @@ router.post("/", async (req, res) => {
     let string = str.substring(str.lastIndexOf("&gt;") + 1);
     let technical = string.substr(3);
 
+    //consolidation of tech info to techSpecs object
     const techSpecs = {
       technical,
     };
 
+    //Remove unwanted text elements
     (delimiter = "&lt;!-- split --&gt;"),
       (start = 2),
       (end = 3),
@@ -166,16 +168,20 @@ router.post("/", async (req, res) => {
     let docs = await Reseller.findOne({ rs_name: vendor });
     docs.save((doc) => doc);
 
+    //Image model query
     let imgurl = docs.imagepath;
     let rsimage = await UploadFile.findOne({ _id: { $eq: imgurl } });
 
+
+    //input from contact users table req.body
     let conName = req.body.contacts
     console.log(conName)
 
 
-    let rsContact = await Contact.findOne({name: { $eq: conName }});
+    let rsContact = await Contact.findOne({_id: { $eq: conName}});
     let rsNewContact = JSON.stringify(rsContact)
     let rsNewCon2 = JSON.parse(rsNewContact)
+    console.log(rsNewCon2)
 
     let myContact = {
       contactname: rsNewCon2.name,
