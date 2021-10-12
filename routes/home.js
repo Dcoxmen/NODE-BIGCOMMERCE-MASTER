@@ -20,15 +20,7 @@ router.get("/", async (req, res, next) => {
     contacts,
     skus,
   });
-  // Reseller.find({}).lean()
-  // .select('rs_name')
-  // .then(resellers => {
-  //     res.render('index/home', {
-  //     resellers: resellers
 
-  //     })
-
-  // })
 });
 
 module.exports = router;

@@ -1,7 +1,7 @@
 const express = require("express");
 const BigCommerce = require("node-bigcommerce");
 const router = express.Router();
-const { Reseller, UploadFile } = require("../models");
+const { Reseller, UploadFile, Contact } = require("../models");
 const unirest = require("unirest");
 
 //BigCommerce main api connection
@@ -16,6 +16,8 @@ const bigCommerce = new BigCommerce({
 //POST Route sends sku id used as parameter to filter results called on products route
 router.post("/", async (req, res) => {
   let sku = req.body.sku;
+ 
+  
 
   //using the bigCommerce object to handle creating the properties needed to fill an html template page.
   try {
@@ -167,6 +169,22 @@ router.post("/", async (req, res) => {
     let imgurl = docs.imagepath;
     let rsimage = await UploadFile.findOne({ _id: { $eq: imgurl } });
 
+    let conName = req.body.contacts
+    console.log(conName)
+
+
+    let rsContact = await Contact.findOne({name: { $eq: conName }});
+    let rsNewContact = JSON.stringify(rsContact)
+    let rsNewCon2 = JSON.parse(rsNewContact)
+
+    let myContact = {
+      contactname: rsNewCon2.name,
+      contactphone: rsNewCon2.phone,
+      contactemail: rsNewCon2.email,
+      contacttitle: rsNewCon2.title
+    }
+   
+    // console.log(rsContact)
     // main body of data object with product info/data from api
     const productData = {
       ...custFields.reduce((a, { key, value }) => {
@@ -191,11 +209,9 @@ router.post("/", async (req, res) => {
       warranty: data[0].warranty,
       rating: data[0].reviews_rating_sum,
       reseller_name: docs.rs_name,
-      reseller_phone: docs.phone,
-      reseller_email: docs.email,
-      reseller_title: docs.title,
       reseller_image1: docs.imagepath,
       reseller_pic: rsimage.url,
+      ...myContact,
       ...techSpecs,
     };
 
@@ -334,6 +350,7 @@ router.post("/", async (req, res) => {
       feat4title: featArr[3],
       feat5title: featArr[4],
       feat6title: featArr[5],
+ 
     };
 
     // if(axtionSs!== undefined){

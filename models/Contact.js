@@ -4,10 +4,18 @@ const ContactSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  Title: String,
-  Phone: String,
-  Email: String,
-  Active: Boolean,
+  Title: {
+    type: String
+  },
+  Phone: {
+    type: String
+  },
+  Email: {
+    type: String
+  },
+  Active:{
+   type: Boolean
+  } 
 });
 
 const Contact = mongoose.model("contact", ContactSchema);

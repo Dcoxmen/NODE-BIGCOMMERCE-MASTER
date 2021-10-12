@@ -47,15 +47,11 @@
                       <label for="contacts">Choose a Contact:</label>
                       <select name="contacts" id="contacts">
                         {{#each contacts}}
-                    
-                    
-                        <option>{{this.Name}}</option>
-                    
+                        <option >{{this.name}}</option>
                         {{else}}
                         <p>No Contacts Found</p>
                     
                         {{/each}}
-                    
                       </select>
                       <div class="row">
                     
