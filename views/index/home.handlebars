@@ -11,78 +11,9 @@
             <label for="sku">Choose a SKU:</label>
 
               <select name="sku" id="sku">
-                
-                 <option value="KAM501B">KAM501B</option>
-                  <option value="CWM320MP">CWM320MP</option>
-                  <option value="MWA632MP104">MWA632MP104</option>
-                  <option value="MWA635MH103">MWA635MH103</option>
-                  <option value="MWA635MH104">MWA635MH104</option>
-                  <option value="CWA635MH">CWA635MH</option>
-                  <option value="KAA112W">KAA112W</option>
-                  <option value="KAA305W">KAA305W</option>
-                  <option value="KMX402W">KMX402W</option>
-                  <option value="KAM504B">KAM504B</option>
-                  <option value="MLA203">MLA203</option>
-                  <option value="MMA700">MMA700</option>
-                  <option value="MVU232">MVU232</option>
-                  <option value="MMU232">MMU232</option>
-                  <option value="MMU330">MMU330</option>
-                  <option value="CWM408MPA">CWM408MPA</option>
-                  <option value="CWA630M">CWA630M</option>
-                  <option value="CWA635MH">CWA635MH</option>
-                  <option value="CWA637MP-IS">CWA637MP-IS</option>
-                  <option value="MWA635MH102">MWA635MH102</option>
-                  <option value="MMU137S">MMU137S</option>
-                  <option value="MWA635MH103">MWA635MH103</option>
-                  <option value="CWA413KL">CWA413KL</option>
-                  <option value="MWA704MP">MWA704MP</option>
-                  <option value="CWA742MP">CWA742MP</option>
-                  <option value="CWM407MP-NFC-IS">CWM407MP-NFC-IS</option> 
-                  <option value="CWA403KL">CWA403KL</option>
-                  <option value="CWA412">CWA412</option>
-                  <option value="CWA501">CWA501</option>
-                  <option value="CWA509">CWA509</option>
-                  <option value="CWA601">CWA601</option>
-                  <option value="CWA602">CWA602</option>
-                  <option value="CWA603CL">CWA603CL</option>
-                  <option value="CWA603KL">CWA603KL</option>
-                  <option value="CWX125">CWX125</option>
-                  <option value="KAA102B">KAA102B</option>
-                  <option value="KAA103W">KAA103W</option>
-                  <option value="KAA110W">KAA110W</option>
-                  <option value="KAA112B">KAA112B</option>
-                  <option value="KAA701W">KAA701W</option>
-                  <option value="KAA702B">KAA702B</option>
-                  <option value="KAM503B">KAM503B</option>
-                  <option value="KAM506W">KAM506W</option>
-                  <option value="KAS203W">KAS203W</option>
-                  <option value="KAS303W">KAS303W</option>
-                  <option value="KKX102">KKX102</option>
-                  <option value="MCU103">MCU103</option>
-                  <option value="MKX115">MKX115</option>
-                  <option value="MMA102">MMA102</option>
-                  <option value="MMA111">MMA111</option>
-                  <option value="MMA200MX102">MMA200MX102</option>
-                  <option value="MMA200MX105">MMA200MX105</option>
-                  <option value="MMA7004">MMA7004</option>
-                  <option value="MME201">MME201</option>
-                  <option value="MMA7003">MMA7003</option>
-                  <option value="MNU004SCMP">MNU004SCMP</option>
-                  <option value="MNU018">MNU018</option>
-                  <option value="MNU018">MNU018</option>
-                  <option value="MNU102KL">MNU102KL</option>
-                  <option value="MNU111CL">MNU111CL</option>
-                  <option value="MNU615">MNU615</option>
-                  <option value="MWA605M">MWA605M</option>
-                  <option value="MWA632MP104">MWA632MP104</option>
-                  <option value="MWA704MP">MWA704MP</option>
-                  <option value="MWA7205MP">MWA7205MP</option>
-                  <option value="MWM400MP103">MWM400MP103</option>
-                  <option value="MWS2015MPS">MWS2015MPS</option>
-                  <option value="SGU101CSE">SGU101CSE</option>
-                  <option value="MMU231">MMU231</option>
-                  <option value="SGU101">SGU101</option>
-              
+                {{#each skus}}
+                <option value={{this.sku}}>{{this.sku}}</option>
+              {{/each}}
               </select>
                             
             
@@ -110,6 +41,24 @@
                 <br><br>
                 
           </div>
+
+
+                    <div class="form-group">
+                      <label for="contacts">Choose a Contact:</label>
+                      <select name="contacts" id="contacts">
+                        {{#each contacts}}
+                        <option value={{this._id}}>{{this.name}}</option>
+                        {{else}}
+                        <p>No Contacts Found</p>
+                    
+                        {{/each}}
+                      </select>
+                      <div class="row">
+                    
+                      </div>
+                      <br><br>
+                    
+                    </div>
                 
                 <div><button type="submit" class="btn btn-primary" value="Submit">Submit</button> </div>
               

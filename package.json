@@ -8,7 +8,8 @@
     "autotest": "node_modules/.bin/supervisor -q -n exit -x node_modules/.bin/_mocha --",
     "exectests": "node_modules/.bin/nyc ./node_modules/.bin/_mocha",
     "lint": "node_modules/.bin/eslint lib test",
-    "test": "npm run exectests && npm run lint"
+    "test": "npm run exectests && npm run lint",
+    "seed": "node seed"
   },
   "repository": {
     "type": "git",
@@ -49,6 +50,7 @@
     "express-graphql": "^0.12.0",
     "express-handlebars": "^5.3.3",
     "graphql": "^15.5.2",
+    "html-pdf": "^3.0.1",
     "mongoose": "^6.0.7",
     "node-bigcommerce": "^4.1.0",
     "request": "^2.88.2",

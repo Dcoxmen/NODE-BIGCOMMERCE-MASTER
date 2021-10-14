@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>PDF Template</title>
+  </head>
+  <style>
+    main {
+      flex: 1 0 auto;
+    }
+    .row {
+      width: 100%;
+    }
+    /* Sticky footer styles
+-------------------------------------------------- */
+    html {
+      position: relative;
+      min-height: 100%;
+    }
+    body {
+      font-family: Helvetica Neue, Arial, sans-serif;
+      margin-bottom: 60px; /* Margin bottom by footer height */
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+    p {
+      font-style: normal;
+      margin: 0;
+      padding: 0;
+      font-weight: 400;
+      font-size: 10pt;
+      color: #58595b;
+      font-family: Helvetica-Neue-Light;
+    }
+
+    .productBlock {
+      display: inline-flex;
+      flex-wrap: nowrap;
+      display: -webkit-box;
+      -webkit-box-pack: justify;
+    }
+
+    .col {
+      background: blue;
+      height: 300px;
+    }
+
+    .media {
+      background: red;
+    }
+  </style>
+  <body>
+    <header>
+      <h2>TEST PRODUCT</h2>
+      <h5>ITS LIT ITS LIT ITS LIT ITS LIT ITS LIT</h5>
+      <hr />
+      <h6>SKU: LSDKFJEI</h6>
+      <h5>MSRP: $199.99</h5>
+    </header>
+    <main>
+      <section class="productBlock">
+        <div style="width: 48%" class="col description">
+          <p>
+            This is a test sentenceThis is a test sentenceThis is a test
+            sentenceThis is a test sentenceThis is a test sentenceThis is a test
+            sentenceThis is a test sentenceThis is a test sentenceThis is a test
+            sentenceThis is a test sentenceThis is a test sentenceThis is a test
+            sentenceThis is a test sentenceThis is a test sentenceThis is a test
+            sentenceThis is a test sentenceThis is a test sentenceThis is a test
+            sentenceThis is a test sentenceThis is a test sentenceThis is a test
+            sentenceThis is a test sentenceThis is a test sentenceThis is a test
+            sentenceThis is a test sentenceThis is a test sentenceThis is a test
+            sentenceThis is a test sentenceThis is a test sentenceThis is a test
+            sentence
+          </p>
+          <ul>
+            <li>it's awesome</li>
+            <li>it's cheap</li>
+            <li>it prevents prenancy</li>
+          </ul>
+        </div>
+        <div style="width: 48%" class="col media">
+          <div class="img-main" style="width: 50%; margin-left: 25%">
+            <img
+              style="width: 100%"
+              src="https://cdn11.bigcommerce.com/s-4ccc5gfp0c/products/1779/images/9133/KAA110W-Front-enclosures__35378.1597340019.386.513.jpg?c=2"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

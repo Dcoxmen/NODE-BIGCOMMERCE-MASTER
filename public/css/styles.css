@@ -110,7 +110,11 @@ p {
 }
 
 .benes {
-  padding-right: 12%;
+  margin-right: 80px;
+  margin-left: 28px;
+}
+.benes ul li {
+  width: 100%;
 }
 
 

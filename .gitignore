@@ -32,3 +32,5 @@ node-bigcommerce.sublime-*
 
 #dotenv
 .env
+
+.yarn.lock
